@@ -22,7 +22,3 @@ A Django-based Netflix clone application that replicates core features of Netfli
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
