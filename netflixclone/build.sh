@@ -5,11 +5,13 @@ set -e
 # Install Python dependencies
 pip install -r requirements.txt
 
-Python manage.py collectstatic --no-input
+Py manage.py makemigrations
+Py manage.py migrate
+
+
+Py manage.py collectstatic --no-input
 # Run database migrations
 
-Python manage.py makemigrations
-Python manage.py migrate
 
 cd netfliclone 
 
