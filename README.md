@@ -1,3 +1,6 @@
+
+![background_netflix](https://github.com/user-attachments/assets/0a3375c0-27c2-4b14-ace6-958479c8667c)
+
 # Netflix Clone
 
 A Django-based Netflix clone application that replicates core features of Netflix streaming platform.
