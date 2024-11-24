@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.conf import settings
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .forms import ProfileForm
 from .models import Profile, Movie
-from django.http import JsonResponse
-from django.conf import settings
 import requests
 import logging
 
@@ -218,3 +219,14 @@ class PlayMovie(View):
             # Handle unexpected errors
             logger.error(f"Error in PlayMovie view: {str(e)}")
             return redirect('netflixapp:profile-list')
+
+@csrf_exempt
+def debug_settings(request):
+    """Debug view to check security settings"""
+    security_settings = {
+        'SECURE_SSL_REDIRECT': getattr(settings, 'SECURE_SSL_REDIRECT', None),
+        'SESSION_COOKIE_SECURE': getattr(settings, 'SESSION_COOKIE_SECURE', None),
+        'CSRF_COOKIE_SECURE': getattr(settings, 'CSRF_COOKIE_SECURE', None),
+        'DEBUG': getattr(settings, 'DEBUG', None),
+    }
+    return JsonResponse(security_settings)
