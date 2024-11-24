@@ -9,7 +9,7 @@ pip install -r requirements.txt
 # Run database migrations
 
 
-cd netfliclone 
+cd netflixclone 
 
 
 
